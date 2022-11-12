@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lotto</title>
+</head>
+<body>
+<canvas id="canvas" width="600" height="300"style="border: solid 1px blue;"></canvas>
+<br/>
+<canvas id="result" width="600" height="200"></canvas>
+<br/>
+<button type="button" onclick="web.start()">인생 역전</button>
+</body>
+<script type="text/javascript" src="js/web.js"></script>
+<script>
+
+    window.onload = function () {
+        web.init();
+        var canvas = document.getElementById('canvas');
+        var arrayColor = new Array('#003300', '#660066', '#0033CC', '#990000', '#66CC00', '#669933', '#993333', '#CC66CC', '#333333');
+        var raf;
+        var lottoBall = new Array();
+
+        for (var i = 0; i < 46; i++) {
+            var ctx = canvas.getContext('2d');
+            var ran = Math.floor(Math.random() * 45);
+            var ran_v = Math.floor(Math.random() * 40);
+            lottoBall[i] = {
+                x: 100 + ran,
+                y: 100 + ran,
+                vx: 2 + ran_v,
+                vy: 2 + ran_v,
+                radius: 25,
+                color: arrayColor[Math.floor(Math.random() * (arrayColor.length -1))],
+                number: i,
+                draw: function () {
+                    var radgrad = ctx.createRadialGradient(this.x,this.y,this.radius,this.x + 40,this.y + 50,this.radius + 10);
+                    radgrad.addColorStop(0, this.color);
+                    radgrad.addColorStop(0.9, '#ffffff');
+                    radgrad.addColorStop(1, 'rgba(1,159,98,0)');
+
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
+                    ctx.closePath();
+                    // ctx.fillStyle = this.color;
+                    ctx.fillStyle = radgrad;
+
+                    ctx.fill();
+                    ctx.fillStyle = "#ffffff";
+                    ctx.font = '30px serif';
+                    ctx.fillText(this.number, this.x - 12, this.y + 10);
+
+                }
+            };
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            lottoBall.map((value, index) => {
+                var ball = value;
+
+                ball.draw();
+                ball.x += ball.vx;
+                ball.y += ball.vy;
+
+                if (ball.y + ball.vy > canvas.height || ball.y + ball.vy < 0) {
+                    ball.vy = -ball.vy;
+                }
+                if (ball.x + ball.vx > canvas.width || ball.x + ball.vx < 0) {
+                    ball.vx = -ball.vx;
+                }
+            });
+            raf = window.requestAnimationFrame(draw);
+        }
+
+        raf = window.requestAnimationFrame(draw);
+
+
+
+    }
+</script>
+
+</html>
