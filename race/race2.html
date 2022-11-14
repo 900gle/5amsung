@@ -63,8 +63,6 @@
             let multi = 10;
             let delay = 40;
             playAlert = setInterval(function () {
-
-
                 const meter1 = Math.random() * multi;
                 if (run1 > 900 && (psy == 0 || change == 1)) {
                     width1 = width1 + meter1 / (multi / 4);
@@ -83,8 +81,6 @@
             }, delay);
 
             playAlert = setInterval(function () {
-
-
                 const meter2 = Math.random() * multi;
                 if (run2 > 900 && (psy == 0 || change == 2)) {
                     width2 = width2 + meter2 / (multi / 4);
@@ -98,7 +94,6 @@
                 if (psy == 2 && change == 0) {
                     jQuery("#player2").find("img").attr("src", "image/player_psy.gif");
                     change = 2;
-
                 }
                 checkRace();
             }, delay);
@@ -115,10 +110,8 @@
                     run3 = run3 + meter3;
                 }
                 if (psy == 3 && change == 0) {
-
                     jQuery("#player3").find("img").attr("src", "image/player_psy.gif");
                     change = 3;
-
                 }
                 checkRace();
             }, delay);
@@ -129,7 +122,6 @@
                     width4 = width4 + meter4 / (multi / 4);
                     jQuery("#player4").css({"width": width4});
                     psy = 4;
-
                 } else {
                     jQuery("#player4").css({"position": "relative", "top": "0px", "left": run4 + "px", width: width_h});
                     run4 = run4 + meter4;
@@ -137,7 +129,6 @@
                 if (psy == 4 && change == 0) {
                     jQuery("#player4").find("img").attr("src", "image/player_psy.gif");
                     change = 4;
-
                 }
                 checkRace();
             }, delay);
@@ -166,7 +157,6 @@
                     width6 = width6 + meter6 / (multi / 4);
                     jQuery("#player6").css({"width": width6});
                     psy = 6;
-
                 } else {
                     jQuery("#player6").css({"position": "relative", "top": "0px", "left": run6 + "px", width: width_h});
                     run6 = run6 + meter6;
