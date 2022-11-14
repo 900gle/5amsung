@@ -21,7 +21,8 @@
         var finish6 = 0;
 
         var width1 = 100, width2 = 100, width3 = 100, width4 = 100, width5 = 100, width6 = 100, width_h = 100;
-        var psy = 0, psy1 = 0, psy2 = 0, psy3 = 0, psy4 = 0, psy5 = 0, psy6 = 0;
+        var psy = 0;
+        var change = 0;
 
         checkRace = function () {
             let goal = 500;
@@ -58,11 +59,14 @@
             }
         }
         startRace = function () {
+
             let multi = 10;
             let delay = 40;
             playAlert = setInterval(function () {
+
+
                 const meter1 = Math.random() * multi;
-                if (run1 > 900 && psy != 1 ) {
+                if (run1 > 900 && (psy == 0 || change == 1)) {
                     width1 = width1 + meter1 / (multi / 4);
                     jQuery("#player1").css({"width": width1});
                     psy = 1;
@@ -71,105 +75,105 @@
                     jQuery("#player1").css({"position": "relative", "top": "0px", "left": run1 + "px", width: width_h});
                     run1 = run1 + meter1;
                 }
-                if (psy == 1) {
+                if (psy == 1 && change == 0) {
                     jQuery("#player1").find("img").attr("src", "image/player_psy.gif");
-                    psy1 = 2;
+                    change = 1;
                 }
                 checkRace();
             }, delay);
 
             playAlert = setInterval(function () {
+
+
                 const meter2 = Math.random() * multi;
-                if (run2 > 900 && psy != 1) {
+                if (run2 > 900 && (psy == 0 || change == 2)) {
                     width2 = width2 + meter2 / (multi / 4);
                     jQuery("#player2").css({"width": width2});
-                    if (psy == 0) {
-                        psy = 1;
-                    }
+                    psy = 2;
+
                 } else {
                     jQuery("#player2").css({"position": "relative", "top": "0px", "left": run2 + "px", width: width_h});
                     run2 = run2 + meter2;
                 }
-                if (psy == 1) {
+                if (psy == 2 && change == 0) {
                     jQuery("#player2").find("img").attr("src", "image/player_psy.gif");
-                    psy2 = 2;
+                    change = 2;
+
                 }
                 checkRace();
             }, delay);
 
             playAlert = setInterval(function () {
                 const meter3 = Math.random() * multi;
-                if (run3 > 900 && psy != 1) {
+                if (run3 > 900 && (psy == 0 || change == 3)) {
                     width3 = width3 + meter3 / (multi / 4);
                     jQuery("#player3").css({"width": width3});
-                    if (psy == 0) {
-                        psy = 1;
-                    }
+                    psy = 3;
+
                 } else {
                     jQuery("#player3").css({"position": "relative", "top": "0px", "left": run3 + "px", width: width_h});
                     run3 = run3 + meter3;
                 }
-                if (psy == 1) {
+                if (psy == 3 && change == 0) {
+
                     jQuery("#player3").find("img").attr("src", "image/player_psy.gif");
-                    psy3 = 2;
+                    change = 3;
+
                 }
                 checkRace();
             }, delay);
 
             playAlert = setInterval(function () {
                 const meter4 = Math.random() * multi;
-                if (run4 > 900 && psy != 1) {
+                if (run4 > 900 && (psy == 0 || change == 4)) {
                     width4 = width4 + meter4 / (multi / 4);
                     jQuery("#player4").css({"width": width4});
-                    if (psy == 0) {
-                        psy = 1;
-                    }
+                    psy = 4;
+
                 } else {
                     jQuery("#player4").css({"position": "relative", "top": "0px", "left": run4 + "px", width: width_h});
                     run4 = run4 + meter4;
                 }
-                if (psy == 1) {
+                if (psy == 4 && change == 0) {
                     jQuery("#player4").find("img").attr("src", "image/player_psy.gif");
-                    psy4 = 2;
+                    change = 4;
+
                 }
                 checkRace();
             }, delay);
 
             playAlert = setInterval(function () {
                 const meter5 = Math.random() * multi;
-                if (run5 > 900 && psy != 1) {
+                if (run5 > 900 && (psy == 0 || change == 5)) {
                     width5 = width5 + meter5 / (multi / 4);
                     jQuery("#player5").css({"width": width5});
-                    if (psy == 0) {
-                        psy = 1;
-                    }
+                    psy = 5;
+
                 } else {
                     jQuery("#player5").css({"position": "relative", "top": "0px", "left": run5 + "px", width: width_h});
                     run5 = run5 + meter5;
                 }
-                if (psy == 1) {
+                if (psy == 5 && change == 0) {
                     jQuery("#player5").find("img").attr("src", "image/player_psy.gif");
-                    psy5 = 2;
+                    change = 5;
                 }
                 checkRace();
             }, delay);
 
-
             playAlert = setInterval(function () {
                 const meter6 = Math.random() * multi;
-                if (run6 > 900 && psy != 1) {
+                if (run6 > 900 && (psy == 0 || change == 6)) {
                     width6 = width6 + meter6 / (multi / 4);
                     jQuery("#player6").css({"width": width6});
-                    if (psy == 0) {
-                        psy = 1;
-                    }
+                    psy = 6;
+
                 } else {
                     jQuery("#player6").css({"position": "relative", "top": "0px", "left": run6 + "px", width: width_h});
                     run6 = run6 + meter6;
                 }
-                if (psy == 1) {
+                if (psy == 6 && change == 0) {
                     jQuery("#player6").find("img").attr("src", "image/player_psy.gif");
-                    psy6 = 2;
+                    change = 6;
                 }
                 checkRace();
             }, delay);
